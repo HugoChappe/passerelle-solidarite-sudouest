@@ -5,7 +5,7 @@
 const GOOGLE_FORM_CONFIG = {
   actionUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSfdYB4gm3u8MZ2WKjrYDcrb8Oyfax6y7-rrXaGdvpFjLXbeQw/formResponse',
   entries: {
-    type: 'entry.REPLACE_TYPE',
+    type: 'entry.1759047126',
     titre: 'entry.2075098705',
     lien: 'entry.1030429726',
     description: 'entry.820227345',
