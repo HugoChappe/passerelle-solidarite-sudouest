@@ -509,7 +509,7 @@ h1, h2, h3 { margin: 0; font-weight: 700; }
 
 @media (max-width: 720px) {
   .header-inner { flex-wrap: wrap; }
-  .brand-subtitle { white-space: normal; }
+  .brand-subtitle { display: none; }
   .card-grid { grid-template-columns: 1fr; }
   .section { scroll-margin-top: 168px; }
 }
