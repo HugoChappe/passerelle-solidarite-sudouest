@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Passerelle Solidaire — Incendies Gironde/Landes : où aider, en un clic</title>
 <meta name="description" content="Où aider après les incendies de Gironde et des Landes (juillet 2026) : dons, bénévolat, hébergement, animaux — tous les liens vérifiés réunis en un seul endroit.">
+<!-- Balise de vérification Google Search Console : coller ici la ligne <meta name="google-site-verification" ...> fournie par Google, voir README.md -->
 <link rel="preconnect" href="https://api.fontshare.com">
 <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -359,6 +360,7 @@
       </button>
     </div>
     <form id="proposal-form">
+      <input type="hidden" name="type" value="proposition">
       <label>
         Nom de l'initiative
         <input type="text" name="titre" required maxlength="120">
@@ -366,17 +368,17 @@
       <label>
         Lien
         <input type="url" name="lien" required placeholder="https://…">
-        <span class="field-hint">Obligatoire — c'est ce qui nous permet de vérifier l'initiative avant de la référencer.</span>
+        <span class="field-hint" id="lien-hint">Obligatoire — c'est ce qui nous permet de vérifier l'initiative avant de la référencer.</span>
       </label>
       <label>
-        Description courte <span class="optional">(optionnel)</span>
-        <textarea name="description" rows="3" maxlength="300"></textarea>
+        Description courte <span class="optional" id="description-optional-tag">(optionnel)</span>
+        <textarea name="description" rows="3" maxlength="300" id="description-field"></textarea>
       </label>
       <label>
         Email <span class="optional">(optionnel, pour être recontacté·e)</span>
         <input type="email" name="email">
       </label>
-      <button type="submit" class="btn btn-primary btn-full">Envoyer la proposition</button>
+      <button type="submit" class="btn btn-primary btn-full" id="submit-proposal">Envoyer la proposition</button>
       <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
     </form>
   </div>
