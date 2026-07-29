@@ -21,6 +21,10 @@
   --accent-hebergement-tint: #EDE4FD;
   --accent-animaux: #DB2777;
   --accent-animaux-tint: #FBDCEA;
+  --accent-pro: #0F766E;
+  --accent-pro-tint: #CCFBF1;
+  --accent-sante: #DC2626;
+  --accent-sante-tint: #FEE2E2;
   --accent-autres: #64748B;
   --accent-autres-tint: #E7EAEE;
 
@@ -241,6 +245,8 @@ h1, h2, h3 { margin: 0; font-weight: 700; }
 .accent-materiel { background: var(--accent-materiel-tint); color: var(--accent-materiel); }
 .accent-hebergement { background: var(--accent-hebergement-tint); color: var(--accent-hebergement); }
 .accent-animaux { background: var(--accent-animaux-tint); color: var(--accent-animaux); }
+.accent-pro { background: var(--accent-pro-tint); color: var(--accent-pro); }
+.accent-sante { background: var(--accent-sante-tint); color: var(--accent-sante); }
 .accent-autres { background: var(--accent-autres-tint); color: var(--accent-autres); }
 
 /* ---------- Cards ---------- */
