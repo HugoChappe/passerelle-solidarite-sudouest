@@ -64,6 +64,7 @@ h1, h2, h3 { margin: 0; font-weight: 700; }
   background: rgba(247, 242, 234, 0.92);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
+  transition: transform 0.25s ease;
 }
 
 .header-inner {
@@ -396,6 +397,7 @@ h1, h2, h3 { margin: 0; font-weight: 700; }
 /* ---------- Empty state ---------- */
 
 .empty-state {
+  margin-top: 24px;
   border: 1px dashed var(--border);
   border-radius: var(--radius-lg);
   padding: 40px 24px;
@@ -544,4 +546,5 @@ h1, h2, h3 { margin: 0; font-weight: 700; }
   .brand-subtitle { display: none; }
   .card-grid { grid-template-columns: 1fr; }
   .section { scroll-margin-top: 168px; }
+  .site-header.header-hidden { transform: translateY(-100%); }
 }

@@ -1,4 +1,4 @@
-// --- Configuration du formulaire "Proposer une solution" ---
+// --- Configuration du formulaire "Proposer une initiative" ---
 // Ce site est 100% statique : les propositions sont envoyées à un Google Form,
 // qui les écrit automatiquement dans un Google Sheet lié. Voir README.md
 // pour la marche à suivre (créer le Form, récupérer ces identifiants).
@@ -25,7 +25,7 @@ let lastFocused = null;
 
 const MODES = {
   proposition: {
-    modalTitle: 'Proposer une solution',
+    modalTitle: 'Proposer une initiative',
     lienHint: "Obligatoire — c'est ce qui nous permet de vérifier l'initiative avant de la référencer.",
     descriptionPlaceholder: '',
     descriptionRequired: false,
@@ -70,6 +70,20 @@ function closeModal() {
   statusEl.className = 'form-status';
   if (lastFocused) lastFocused.focus();
 }
+
+// Masque le header au scroll vers le bas, le réaffiche au scroll vers le haut
+// (effet surtout utile en mobile, où le header occupe une grande part de l'écran).
+const siteHeader = document.querySelector('.site-header');
+let lastScrollY = window.scrollY;
+window.addEventListener('scroll', () => {
+  const currentScrollY = window.scrollY;
+  if (currentScrollY > lastScrollY && currentScrollY > 80) {
+    siteHeader.classList.add('header-hidden');
+  } else {
+    siteHeader.classList.remove('header-hidden');
+  }
+  lastScrollY = currentScrollY;
+}, { passive: true });
 
 document.querySelectorAll('#open-proposal, [data-open-proposal]').forEach((el) => {
   el.addEventListener('click', () => openModal({ type: 'proposition' }));

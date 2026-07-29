@@ -2,7 +2,7 @@
 
 Site statique une page, aucun build, aucune dépendance serveur. Ouvrir `index.html` suffit.
 
-## Connecter le formulaire "Proposer une solution" à un Google Sheet
+## Connecter le formulaire "Proposer une initiative" à un Google Sheet
 
 Le formulaire envoie ses données à un Google Form, qui les écrit automatiquement
 dans le Google Sheet lié — pas de backend à héberger ni à maintenir.
@@ -33,7 +33,7 @@ Sheet reste vide mais le reste du formulaire fonctionne normalement.)
 
 Le champ **Type** (`proposition` ou `signalement`) est un champ caché du
 formulaire, rempli automatiquement :
-- Les boutons "Proposer une solution" (header + section "Autres initiatives")
+- Les boutons "Proposer une initiative" (header + section "Autres initiatives")
   ouvrent la popin avec `type=proposition`.
 - Le lien "Signaler un problème" affiché sous chaque ressource (généré
   automatiquement par [script.js](script.js) à partir de chaque `.card`) ouvre
