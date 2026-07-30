@@ -137,20 +137,26 @@ if (navigator.share) {
   });
 }
 
-const copyLinkBtn = document.getElementById('copy-link');
-copyLinkBtn.addEventListener('click', async () => {
-  const label = copyLinkBtn.querySelector('span');
-  const original = label.textContent;
-  try {
-    await navigator.clipboard.writeText(SHARE_URL);
-    label.textContent = 'Copié !';
-    trackShare('copy_link');
-  } catch (err) {
-    label.textContent = 'Erreur — copiez manuellement';
-  } finally {
-    setTimeout(() => { label.textContent = original; }, 1800);
-  }
-});
+function wireCopyButton(id, method) {
+  const btn = document.getElementById(id);
+  if (!btn) return;
+  btn.addEventListener('click', async () => {
+    const label = btn.querySelector('span');
+    const original = label.textContent;
+    try {
+      await navigator.clipboard.writeText(SHARE_URL);
+      label.textContent = 'Copié !';
+      trackShare(method);
+    } catch (err) {
+      label.textContent = 'Erreur — copiez manuellement';
+    } finally {
+      setTimeout(() => { label.textContent = original; }, 1800);
+    }
+  });
+}
+
+wireCopyButton('copy-link', 'copy_link');
+wireCopyButton('copy-link-top', 'copy_link_top');
 
 document.getElementById('share-whatsapp').href = `https://wa.me/?text=${encodeURIComponent(`${SHARE_TEXT} ${SHARE_URL}`)}`;
 document.getElementById('share-sms').href = `sms:?&body=${encodeURIComponent(`${SHARE_TEXT} ${SHARE_URL}`)}`;
