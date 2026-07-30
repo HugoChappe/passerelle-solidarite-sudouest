@@ -438,6 +438,8 @@ h1, h2, h3 { margin: 0; font-weight: 700; }
 
 .share-card h2 { margin-bottom: 4px; }
 
+.share-card .section-note { margin: 0 auto; }
+
 .share-actions {
   display: flex;
   flex-wrap: wrap;
