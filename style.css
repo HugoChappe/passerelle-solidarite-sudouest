@@ -397,6 +397,10 @@ h1, h2, h3 { margin: 0; font-weight: 700; }
 
 /* ---------- Share ---------- */
 
+.share-section {
+  margin-top: -48px;
+}
+
 .share-card {
   background: var(--primary-tint);
   border-radius: var(--radius-lg);
