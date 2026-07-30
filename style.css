@@ -131,6 +131,7 @@ h1, h2, h3 { margin: 0; font-weight: 700; }
   font-weight: 700;
   cursor: pointer;
   white-space: nowrap;
+  text-decoration: none;
   transition: background-color .15s ease, transform .1s ease;
 }
 
@@ -392,6 +393,25 @@ h1, h2, h3 { margin: 0; font-weight: 700; }
 .callout-warning {
   background: var(--accent-materiel-tint);
   color: #7C4A0A;
+}
+
+/* ---------- Share ---------- */
+
+.share-card {
+  background: var(--primary-tint);
+  border-radius: var(--radius-lg);
+  padding: 40px 24px;
+  text-align: center;
+}
+
+.share-card h2 { margin-bottom: 4px; }
+
+.share-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
 }
 
 /* ---------- Empty state ---------- */

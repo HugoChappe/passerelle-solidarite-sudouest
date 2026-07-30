@@ -116,6 +116,50 @@ document.querySelectorAll('.card').forEach((card) => {
   actionsRow.appendChild(reportBtn);
 });
 
+// --- Partage ---
+const SHARE_URL = 'https://passerelle-solidarite-sudouest.vercel.app/';
+const SHARE_TEXT = 'Passerelle Solidaire — tous les liens utiles pour aider face aux incendies de Gironde et des Landes, réunis en un seul endroit.';
+
+function trackShare(method) {
+  if (window.posthog) posthog.capture('share_click', { method });
+}
+
+const nativeShareBtn = document.getElementById('share-native');
+if (navigator.share) {
+  nativeShareBtn.hidden = false;
+  nativeShareBtn.addEventListener('click', async () => {
+    try {
+      await navigator.share({ title: 'Passerelle Solidaire', text: SHARE_TEXT, url: SHARE_URL });
+      trackShare('native');
+    } catch (err) {
+      // L'utilisateur a annulé le partage, rien à faire.
+    }
+  });
+}
+
+const copyLinkBtn = document.getElementById('copy-link');
+copyLinkBtn.addEventListener('click', async () => {
+  const label = copyLinkBtn.querySelector('span');
+  const original = label.textContent;
+  try {
+    await navigator.clipboard.writeText(SHARE_URL);
+    label.textContent = 'Copié !';
+    trackShare('copy_link');
+  } catch (err) {
+    label.textContent = 'Erreur — copiez manuellement';
+  } finally {
+    setTimeout(() => { label.textContent = original; }, 1800);
+  }
+});
+
+document.getElementById('share-whatsapp').href = `https://wa.me/?text=${encodeURIComponent(`${SHARE_TEXT} ${SHARE_URL}`)}`;
+document.getElementById('share-sms').href = `sms:?&body=${encodeURIComponent(`${SHARE_TEXT} ${SHARE_URL}`)}`;
+document.getElementById('share-email').href = `mailto:?subject=${encodeURIComponent('Passerelle Solidaire — ressources pour les sinistrés des incendies')}&body=${encodeURIComponent(`${SHARE_TEXT}\n\n${SHARE_URL}`)}`;
+
+['share-whatsapp', 'share-sms', 'share-email'].forEach((id) => {
+  document.getElementById(id).addEventListener('click', () => trackShare(id.replace('share-', '')));
+});
+
 document.getElementById('close-proposal').addEventListener('click', closeModal);
 
 backdrop.addEventListener('click', (e) => {
