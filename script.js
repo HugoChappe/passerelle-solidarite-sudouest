@@ -98,6 +98,10 @@ document.querySelectorAll('.card').forEach((card) => {
   const titre = titleEl.textContent.trim();
   const lien = linkEl.getAttribute('href');
 
+  linkEl.addEventListener('click', () => {
+    if (window.posthog) posthog.capture('resource_click', { resource: titre, url: lien });
+  });
+
   const reportBtn = document.createElement('button');
   reportBtn.type = 'button';
   reportBtn.className = 'report-link';
